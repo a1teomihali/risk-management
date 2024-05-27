@@ -6,9 +6,7 @@ Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp
 ###### Delete Risk
 DELETE  https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Risks(20466922-7d57-4e76-b14c-e53fd97dcb11)
 Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
-Accept-Language: en-US
 Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
-
 
 ###### Create Risk
 POST https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Risks HTTP/1.1
@@ -43,7 +41,7 @@ Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
 Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
 
 {
-    "description": "New mitigation record added in the table",
+    "description": "New mitigation record added",
     "owner": "Alteo Mihali",
     "timeline": "Q1 2024"
 }
