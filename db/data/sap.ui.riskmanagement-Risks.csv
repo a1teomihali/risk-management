@@ -1,0 +1,14 @@
+ID,title,prio,descr,miti_ID,impact,criticality
+20466922-7d57-4e76-b14c-e53fd97dcb11,CFR non-compliance,3,Recent restructuring might violate CFR code 71,20466921-7d57-4e76-b14c-e53fd97dcb11,10000,5
+20466922-7d57-4e76-b14c-e53fd97dcb12,SLA violation with possible termination cause,2,Repeated SAL violation on service delivery for two successive quarters,20466921-7d57-4e76-b14c-e53fd97dcb12,90000,3
+20466922-7d57-4e76-b14c-e53fd97dcb13,Shipment violating export control,1,Violation of export and trade control with unauthorized downloads,20466921-7d57-4e76-b14c-e53fd97dcb13,200000,2
+3f2504e0-4f89-11d3-9a0c-0305e82c3301,Risk of data breach,5,Potential risk of customer data being exposed,9f1041ff-9581-4117-852a-227a282fad59,80000,5
+3f2504e0-4f89-11d3-9a0c-0305e82c3303,Risk of system downtime,3,Potential risk of system going down during peak hours,62e1061b-6c24-4084-a036-8e38768e3094,70000,3
+3f2504e0-4f89-11d3-9a0c-0305e82c3305,Risk of non-compliance,2,Potential risk of not meeting regulatory compliance,68e4d08f-5da7-4b86-82d7-1a6278cc2fe0,6000,1
+3f2504e0-4f89-11d3-9a0c-0305e82c3307,Risk of financial loss,5,Potential risk of significant financial loss,f31a25fe-806c-460b-8544-0b523825cf8e,90000,4
+3f2504e0-4f89-11d3-9a0c-0305e82c3309,Risk of reputational damage,4,Potential risk of damage to company's reputation,692c86ac-7878-4c6c-9310-8b8ffdb83d28,7000,5
+3f2504e0-4f89-11d3-9a0c-0305e82c3311,Risk of operational disruption,1,Potential risk of disruption to operations,de332bcb-1fd1-465d-ac9f-8f8898b043ac,50000,3
+3f2504e0-4f89-11d3-9a0c-0305e82c3313,Risk of legal issues,5,Potential risk of facing legal issues,a4ff499c-962f-4719-9ea2-17415c6a0dc3,8000,5
+3f2504e0-4f89-11d3-9a0c-0305e82c3315,Risk of security breach,3,Potential risk of a security breach,94d641b6-a5a0-4eb3-8e9f-4591cb00e341,700000,3
+3f2504e0-4f89-11d3-9a0c-0305e82c3317,Risk of product failure,1,Potential risk of a product failing to meet customer expectations,e87c7955-b9c6-44e7-9a66-d8aab9adde0b,30000,1
+3f2504e0-4f89-11d3-9a0c-0305e82c3319,Risk of project delay,4,Potential risk of project delays,c5061c27-61fc-4587-8633-24e9259ca94a,900000,4

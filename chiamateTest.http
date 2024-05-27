@@ -1,0 +1,49 @@
+###### Get Risks
+GET https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Risks
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+###### Delete Risk
+DELETE  https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Risks(20466922-7d57-4e76-b14c-e53fd97dcb11)
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Accept-Language: en-US
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+
+###### Create Risk
+POST https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Risks HTTP/1.1
+Content-Type: application/json
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+{
+    "title": "New high risk as a record",
+    "prio": "4",
+    "descr": "test risk",
+    "impact": 95000,
+    "criticality": 4
+}
+
+
+######################## Mitigations 
+###### Get Mitigation
+GET https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Mitigations
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+###### Delete Mitigation
+DELETE  https://port4004-workspaces-ws-zz8lj.us10.trial.applicationstudio.cloud.sap/odata/v4/MyBookshopService/Customer(20466921-7d57-4e76-b14c-e53fd97dcb11)
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+###### Create mitigation
+POST https://port4004-workspaces-ws-chj4g.us10.trial.applicationstudio.cloud.sap/odata/v4/service/risk/Mitigations HTTP/1.1
+Content-Type: application/json
+Authorization: Basic cmlzay5tYW5hZ2VyOmluaXRpYWw=
+Cookie: workspaces-ws-chj4g_WSR_SESSIONID=vouGFN1mGz03iHRA+OqOIoAlakJHpZ2AcoQ6lp13ij0Rf1OiAjJRhQJaMtU1Ab6iCDvTyitG4UQRWOfzOr4bSA==
+
+{
+    "description": "New mitigation record added in the table",
+    "owner": "Alteo Mihali",
+    "timeline": "Q1 2024"
+}
