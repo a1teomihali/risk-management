@@ -19,7 +19,7 @@ annotate RiskService.Mitigations with {
 
 annotate RiskService.Risks with
 @(UI: {
-    HeaderInfo     : {
+    HeaderInfo      : {
         $Type         : 'UI.HeaderInfoType',
         TypeName      : 'Risk',
         TypeNamePlural: 'Risks',
@@ -32,11 +32,11 @@ annotate RiskService.Risks with
             Value: descr
         }
     },
-    SelectionFields: [
+    SelectionFields : [
         prio,
         impact
     ],
-    LineItem       : [
+    LineItem        : [
         {Value: title},
         {
             Value      : prio,
@@ -50,6 +50,24 @@ annotate RiskService.Risks with
         {Value: criticality}
 
     ],
+    Facets          : [{
+        $Type : 'UI.ReferenceFacet',
+        Label : 'Main',
+        Target: '@UI.FieldGroup#Main'
+    }],
+    FieldGroup #Main: {Data: [
+        {Value: miti_ID},
+        {
+            Value      : prio,
+            Criticality: criticality
+        },
+        {
+            Value      : impact,
+            Criticality: criticality
+        }
+    ]},
+
+
 }) {
 
 };
