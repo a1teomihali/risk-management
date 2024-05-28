@@ -9,15 +9,15 @@ entity Risks : cuid, managed {
     title       : String(100);
     prio        : Integer;
     descr       : String;
-    miti        : Association to Mitigations;
+    miti        : Composition of many Mitigations
+                      on miti.risk = $self;
     impact      : Integer;
-    criticality : Integer @mandatory;
+    criticality : Integer;
 }
 
 entity Mitigations : cuid, managed {
     description : String;
     owner       : String;
     timeline    : String;
-    risks       : Association to many Risks
-                      on risks.miti = $self;
+    risk        : Association to Risks;
 }

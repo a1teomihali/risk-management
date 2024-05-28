@@ -1,22 +1,5 @@
 using RiskService from './risk-service';
 
-annotate RiskService.Risks with {
-    ID          @title: 'Risk ID';
-    title       @title: 'Title';
-    prio        @title: 'Priority';
-    descr       @title: 'Description';
-    miti        @title: 'Mitigation';
-    impact      @title: 'Impact';
-    criticality @title: 'Criticality';
-}
-
-annotate RiskService.Mitigations with {
-    description @title: 'Description';
-    owner       @title: 'Owner';
-    timeline    @title: 'Timeline';
-    risks       @title: 'Risks';
-}
-
 annotate RiskService.Risks with
 @(UI: {
     HeaderInfo      : {
@@ -42,7 +25,7 @@ annotate RiskService.Risks with
             Value      : prio,
             Criticality: criticality
         },
-        {Value: miti_ID},
+        {Value: miti.ID},
         {
             Value      : impact,
             Criticality: criticality
@@ -50,13 +33,19 @@ annotate RiskService.Risks with
         {Value: criticality}
 
     ],
-    Facets          : [{
-        $Type : 'UI.ReferenceFacet',
-        Label : 'Main',
-        Target: '@UI.FieldGroup#Main'
-    }],
+    Facets          : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Main',
+            Target: '@UI.FieldGroup#Main'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Mitigations',
+            Target: 'miti/@UI.LineItem'
+        }
+    ],
     FieldGroup #Main: {Data: [
-        {Value: miti_ID},
         {
             Value      : prio,
             Criticality: criticality
@@ -66,34 +55,38 @@ annotate RiskService.Risks with
             Criticality: criticality
         }
     ]},
-
-
 }) {
-
+    ID          @title: 'Risk ID';
+    title       @title: 'Title';
+    prio        @title: 'Priority';
+    descr       @title: 'Description';
+    miti        @title: 'Mitigation';
+    impact      @title: 'Impact';
+    criticality @title: 'Criticality';
 };
 
-annotate RiskService.Risks with {
-    miti @(Common: {
-        //show text, not id for mitigation in the context of risks
-        Text           : miti.description,
+annotate RiskService.Mitigations with {
+    risk @(Common: {
+        //show text, not id for risk in the context of risks
+        Text           : risk.descr,
         TextArrangement: #TextOnly,
         ValueList      : {
-            Label         : 'Mitigations',
-            CollectionPath: 'Mitigations',
+            Label         : 'Risk',
+            CollectionPath: 'Risks',
             Parameters    : [
                 {
                     $Type            : 'Common.ValueListParameterInOut',
-                    LocalDataProperty: miti_ID,
+                    LocalDataProperty: risk_ID,
                     ValueListProperty: 'ID'
                 },
                 {
                     $Type            : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty: 'description'
+                    ValueListProperty: 'descr'
                 }
             ]
         }
-    });
-}
+    })
+};
 
 
 annotate RiskService.Mitigations with
@@ -104,16 +97,20 @@ annotate RiskService.Mitigations with
         TypeNamePlural: 'Mitigations',
         Description   : {
             $Type: 'UI.DataField',
+            Label: description,
             Value: description
         }
     },
     SelectionFields: [owner],
     LineItem       : [
+        {Value: description},
         {Value: owner},
         {Value: timeline},
-        {Value: risks.ID},
-        {Value: risks.miti_ID}
+        {Value: risk.ID}
     ],
 }) {
-
+    description @title: 'Description';
+    owner       @title: 'Owner';
+    timeline    @title: 'Timeline';
+    risk        @title: 'Risk ID';
 };
