@@ -7,11 +7,11 @@ using {
 
 entity Risks : cuid, managed {
     title       : String(100);
-    prio        : String(5);
+    prio        : Integer;
     descr       : String;
     miti        : Association to Mitigations;
     impact      : Integer;
-    criticality : Integer;
+    criticality : Integer @mandatory;
 }
 
 entity Mitigations : cuid, managed {
