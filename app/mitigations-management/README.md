@@ -1,27 +1,26 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Thu May 23 2024 10:10:41 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Fri Jul 26 2024 14:39:00 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
-|**App Generator Version**<br>1.13.4|
+|**App Generator Version**<br>1.14.2|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local Cap|
-|**Service URL**<br>http://localhost:4004/odata/v4/service/risk/
+|**Service URL**<br>http://localhost:4004/odata/v4/service/risk/|
 |**Module Name**<br>mitigations-management|
-|**Application Title**<br>Manage Mitigations|
+|**Application Title**<br>Manage Mitiations|
 |**Namespace**<br>ns|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.124.0|
+|**UI5 Version**<br>1.126.1|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Mitigations|
-|**Navigation Entity**<br>risks|
 
 ## mitigations-management
 
-An SAP Fiori application.
+An SAP application.
 
 ### Starting the generated app
 

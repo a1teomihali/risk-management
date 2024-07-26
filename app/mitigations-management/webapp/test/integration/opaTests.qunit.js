@@ -3,10 +3,9 @@ sap.ui.require(
         'sap/fe/test/JourneyRunner',
         'ns/mitigationsmanagement/test/integration/FirstJourney',
 		'ns/mitigationsmanagement/test/integration/pages/MitigationsList',
-		'ns/mitigationsmanagement/test/integration/pages/MitigationsObjectPage',
-		'ns/mitigationsmanagement/test/integration/pages/RisksObjectPage'
+		'ns/mitigationsmanagement/test/integration/pages/MitigationsObjectPage'
     ],
-    function(JourneyRunner, opaJourney, MitigationsList, MitigationsObjectPage, RisksObjectPage) {
+    function(JourneyRunner, opaJourney, MitigationsList, MitigationsObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
@@ -18,8 +17,7 @@ sap.ui.require(
             {
                 pages: { 
 					onTheMitigationsList: MitigationsList,
-					onTheMitigationsObjectPage: MitigationsObjectPage,
-					onTheRisksObjectPage: RisksObjectPage
+					onTheMitigationsObjectPage: MitigationsObjectPage
                 }
             },
             opaJourney.run

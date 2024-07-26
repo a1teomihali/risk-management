@@ -27,6 +27,4 @@ service RiskService {
             to   : ['RiskManager']
         }
     ]) as projection on my.Mitigations;
-
-//    annotate Mitigations with @odata.draft.enabled;
 }

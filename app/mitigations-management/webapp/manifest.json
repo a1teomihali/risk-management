@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
-      "version": "1.13.4",
-      "toolsId": "8f3d048c-00a1-4573-b067-0016e2474401"
+      "version": "1.14.2",
+      "toolsId": "73129f8c-6d92-472d-9219-b9d6d9b0fccf"
     },
     "dataSources": {
       "mainService": {
@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.124.0",
+      "minUI5Version": "1.126.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -68,7 +68,6 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {
-          "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
           "earlyRequests": true
@@ -94,11 +93,6 @@
           "pattern": "Mitigations({key}):?query:",
           "name": "MitigationsObjectPage",
           "target": "MitigationsObjectPage"
-        },
-        {
-          "pattern": "Mitigations({key})/risks({key2}):?query:",
-          "name": "RisksObjectPage",
-          "target": "RisksObjectPage"
         }
       ],
       "targets": {
@@ -124,7 +118,7 @@
                   }
                 }
               },
-              "initialLoad": "Enabled"
+              "hideFilterBar": false
             }
           }
         },
@@ -135,25 +129,7 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Mitigations",
-              "navigation": {
-                "risks": {
-                  "detail": {
-                    "route": "RisksObjectPage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "RisksObjectPage": {
-          "type": "Component",
-          "id": "RisksObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Mitigations/risks"
+              "contextPath": "/Mitigations"
             }
           }
         }

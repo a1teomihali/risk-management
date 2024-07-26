@@ -7,25 +7,26 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "7.9.2",
-    "express": "^4",
     "@sap/cds-hana": "^2",
     "@sap/xssec": "^3",
+    "express": "^4",
     "passport": "0.7.0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^7",
     "@sap/eslint-plugin-cds": "^3",
-    "@sap/ux-specification": "^1.120.10",
+    "@sap/ux-specification": "^1.120.15",
     "eslint": "^9"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-risks-management": "cds watch --open risks-management/webapp/index.html?sap-ui-xx-viewCache=false --profile development",
-    "watch-mitigations-management": "cds watch --open mitigations-management/webapp/index.html?sap-ui-xx-viewCache=false --profile development"
+    "watch-mitigations-management": "cds watch --open mitigations-management/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
     "app/risks-management",
+    "app/mitigations-management",
     "app/mitigations-management"
   ]
 }

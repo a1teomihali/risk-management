@@ -1,99 +1,154 @@
 using RiskService as service from '../../srv/risk-service';
-using from '../../srv/risk-service-ui';
-annotate service.Risks with @(
-    UI.FieldGroup #GeneratedGroup : {
-        $Type : 'UI.FieldGroupType',
-        Data : [
-            {
-                $Type : 'UI.DataField',
-                Value : title,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : prio,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : descr,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : impact,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : criticality,
-            },
-        ],
+// using from '../../srv/risk-service-ui';
+
+annotate service.Risks with
+@UI          : {
+    SelectionFields        : [
+        prio,
+        impact
+    ],
+
+    HeaderInfo             : {
+        TypeName      : 'Risk',
+        TypeNamePlural: 'Risks',
+        Title         : {Value: ID},
+        Description   : {Value: title}
     },
-    UI.Facets : [
+
+    LineItem               : [
+        {Value: ID},
+        {Value: title},
+        {
+            Value      : prio,
+            Criticality: criticality
+        },
+        {Value: descr},
+        {
+            Value            : miti.ID,
+            Label            : '{i18n>Mitigation ID}',
+            ![@UI.Importance]: #High
+        },
+        {
+            Value      : impact,
+            Criticality: criticality
+        },
+        {Value: criticality},
+        {
+            Value: createdAt,
+            Label: 'Created At',
+            ![@UI.Hidden]
+        },
+        {
+            Value: modifiedAt,
+            Label: 'Modified At',
+            ![@UI.Hidden]
+        },
+        {
+            Value: createdBy,
+            Label: 'Created By',
+            ![@UI.Hidden]
+        },
+        {
+            Value: modifiedBy,
+            Label: 'Modified By',
+            ![@UI.Hidden]
+        }
+    ],
+
+    Facets                 : [
         {
             $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            Label : 'Risk Details',
+            Target: '@UI.FieldGroup#RiskDetails'
         },
-    ]
-);
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Mitigation Details',
+            Target: 'miti/@UI.LineItem#MitigationDetails'
+        }
+    ],
 
-annotate service.Risks with {
-    prio @(Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Risks',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : prio,
-                    ValueListProperty : 'prio',
-                },
-            ],
-        },
-        Common.ValueListWithFixedValues : true
-)};
-annotate service.Risks with {
-    impact @(Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Risks',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : impact,
-                    ValueListProperty : 'impact',
-                },
-            ],
-        },
-        Common.ValueListWithFixedValues : true
-)};
-annotate service.Risks with @(
-    UI.LineItem : [
+    FieldGroup #RiskDetails: {Data: [
+        {Value: ID},
+        {Value: title},
         {
-            $Type : 'UI.DataField',
-            Value : title,
+            Value      : prio,
+            Criticality: criticality
         },
+        {Value: descr},
         {
-            $Type : 'UI.DataField',
-            Value : prio,
-            Criticality : criticality,
+            Value      : impact,
+            Criticality: criticality
         },
-        {
-            $Type : 'UI.DataField',
-            Value : miti_ID,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : impact,
-            Criticality : criticality,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : criticality,
-        },
-    ]
-);
-annotate service.Risks with @(
-    UI.FieldGroup #i18nDetails : {
-        $Type : 'UI.FieldGroupType',
-        Data : [
-        ],
+        {Value: criticality}
+    ]},
+} {
+    ID @title: 'Risk ID'
+       @UI.HiddenFilter;
+};
+
+annotate service.Mitigations with {
+    risk @(Common: {ValueList: {
+        Label         : 'Risk',
+        CollectionPath: 'Risks',
+        Parameters    : [
+            {
+                $Type            : 'Common.ValueListParameterInOut',
+                LocalDataProperty: risk_ID,
+                ValueListProperty: 'ID'
+            },
+            {
+                $Type            : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty: 'descr'
+            }
+        ]
+    }})
+};
+
+
+annotate service.Mitigations with
+@(UI: {LineItem #MitigationDetails: [
+    {
+        Value            : ID,
+        Label            : 'Mitigation ID',
+        ![@UI.Importance]: #High
+    },
+    {
+        Value            : description,
+        ![@UI.Importance]: #Medium
+    },
+    {
+        Value            : owner,
+        ![@UI.Importance]: #High
+    },
+    {
+        Value            : timeline,
+        ![@UI.Importance]: #Medium
+    },
+    {
+        $Type            : 'UI.DataField',
+        Value            : risk_ID,
+        Label            : '{i18n>Risk ID}',
+        ![@UI.Importance]: #High,
+    },
+    {
+        Value: createdAt,
+        ![@UI.Hidden]
+    },
+    {
+        Value: createdBy,
+        ![@UI.Hidden]
+    },
+    {
+        Value: modifiedAt,
+        ![@UI.Hidden]
+    },
+    {
+        Value: modifiedBy,
+        ![@UI.Hidden]
+    },
+    {
+        Value: risk.ID,
+        ![@UI.Hidden]
     }
-);
+]});

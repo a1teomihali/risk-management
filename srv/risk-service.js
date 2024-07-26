@@ -5,10 +5,15 @@ module.exports = cds.service.impl(async function () {
     this.after('READ', 'Risks', risksData => {
         const risks = Array.isArray(risksData) ? risksData : [risksData];
         risks.forEach(risk => {
-            risk.criticality = risk.impact >= 50000 ? 1 : 2;
+            if (risk.impact <= 30000) {
+                risk.criticality = 3;
+            } else if (risk.impact > 30000 && risk.impact <= 100000) {
+                risk.criticality = 2;
+            } else {
+                risk.criticality = 1;
+            }
             const riskValidation = new RiskValidation(risk);
             riskValidation.validateRisk();
         });
-        //    return risksData.notify("Data retrieved successfully");
     });
 });

@@ -4,7 +4,7 @@ class RiskValidation {
     }
 
     validateRisk() {
-        if(this.risk.impact >= 50000) {
+        if(this.risk.impact >= 100000) {
             let riskTitle = this.risk.title;
             console.log(`Problem with risk ${riskTitle}`);
         }
