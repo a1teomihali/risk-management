@@ -1,5 +1,4 @@
 using RiskService as service from '../../srv/risk-service';
-// using from '../../srv/risk-service-ui';
 
 annotate service.Risks with
 @UI          : {
