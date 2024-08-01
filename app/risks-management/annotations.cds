@@ -24,7 +24,7 @@ annotate service.Risks with
         {Value: descr},
         {
             Value            : miti.ID,
-            Label            : '{i18n>Mitigation ID}',
+            Label            : '{i18n>Mitigation Assoc}',
             ![@UI.Importance]: #High
         },
         {
@@ -86,23 +86,23 @@ annotate service.Risks with
        @UI.HiddenFilter;
 };
 
-annotate service.Mitigations with {
-    risk @(Common: {ValueList: {
-        Label         : 'Risk',
-        CollectionPath: 'Risks',
-        Parameters    : [
-            {
-                $Type            : 'Common.ValueListParameterInOut',
-                LocalDataProperty: risk_ID,
-                ValueListProperty: 'ID'
-            },
-            {
-                $Type            : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty: 'descr'
-            }
-        ]
-    }})
-};
+// annotate service.Mitigations with {
+//     risk @(Common: {ValueList: {
+//         Label         : 'Risk',
+//         CollectionPath: 'Risks',
+//         Parameters    : [
+//             {
+//                 $Type            : 'Common.ValueListParameterInOut',
+//                 LocalDataProperty: risk_ID,
+//                 ValueListProperty: 'ID'
+//             },
+//             {
+//                 $Type            : 'Common.ValueListParameterDisplayOnly',
+//                 ValueListProperty: 'descr'
+//             }
+//         ]
+//     }})
+// };
 
 
 annotate service.Mitigations with

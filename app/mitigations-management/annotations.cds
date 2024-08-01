@@ -166,3 +166,26 @@ annotate service.Mitigations with {
     ID @Common.Label: '{i18n>Mitigation ID}'
        @UI.HiddenFilter
 };
+
+annotate service.Mitigations with {
+    @Common: {
+        Text                    : risk.descr,
+        TextArrangement         : #TextFirst,
+        ValueListWithFixedValues: true,
+        ValueList               : {
+            CollectionPath: 'Risks',
+            Parameters    : [
+                {
+                    $Type            : 'Common.ValueListParameterInOut',
+                    LocalDataProperty: risk_ID,
+                    ValueListProperty: 'ID'
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'descr'
+                }
+            ]
+        }
+    }
+    risk;
+};
