@@ -71,12 +71,12 @@ annotate service.Risks with
         {Value: ID},
         {Value: title},
         {
-            Value      : prio,
+            Value      : impact,
             Criticality: criticality
         },
         {Value: descr},
         {
-            Value      : impact,
+            Value      : prio,
             Criticality: criticality
         },
         {Value: criticality}

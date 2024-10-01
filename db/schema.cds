@@ -10,7 +10,7 @@ entity Risks : cuid, managed {
     title       : String(100)              @mandatory;
 
     @title: 'Priority'
-    prio        : Integer                  @mandatory;
+    prio        : Integer                  @readonly;
 
     @title: 'Description'
     descr       : String;
@@ -24,7 +24,7 @@ entity Risks : cuid, managed {
 
     @title: 'Criticality'
     @UI.HiddenFilter
-    criticality : Integer;
+    criticality : Integer                  @readonly;
 }
 
 entity Mitigations : cuid, managed {

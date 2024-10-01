@@ -7,10 +7,13 @@ module.exports = cds.service.impl(async function () {
         risks.forEach(risk => {
             if (risk.impact <= 30000) {
                 risk.criticality = 3;
+                risk.prio = 3;
             } else if (risk.impact > 30000 && risk.impact <= 100000) {
                 risk.criticality = 2;
+                risk.prio = 2;
             } else {
                 risk.criticality = 1;
+                risk.prio = 1;
             }
             const riskValidation = new RiskValidation(risk);
             riskValidation.validateRisk();
